@@ -14,9 +14,9 @@ app.use("/public", express.static("public"));
 const pool = Mysql.createPool({
   connectionLimit: 10,
   host: "localhost",
-  user: "root",
-  password: "",
-  database: "restaurant",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD || "",
+  database: process.env.DB_NAME,
 });
 //get food for page home
 app.get("/get_food", (req, res) => {
